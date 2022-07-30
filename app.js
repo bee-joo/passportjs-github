@@ -38,7 +38,7 @@ passport.deserializeUser(function(user, done) {
     done(null, user);
 });
 
-app.use(session({ secret: "supersecret", resave: true, saveUninitialized: true }));
+app.use(session({ secret: `${process.env.SESSION_SECRET}`, resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
