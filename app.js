@@ -11,7 +11,7 @@ import GitHubStrategy from 'passport-github2';
 const app = express();
 const __dirname = path.resolve();
 
-mongoose.connect(`mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@cluster0.h5ljwwk.mongodb.net/?retryWrites=true&w=majority`)
+mongoose.connect(`mongodb+srv://${process.env.MONGO_ADDRESS}:${process.env.MONGO_PORT}`) // configure your MongoDB connection
 
 const Schema = mongoose.Schema;
 const UserSchema = new Schema({ githubId: Number});
