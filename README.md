@@ -1,7 +1,9 @@
 # passportjs-github
 
 ## About  
-GitHub OAuth strategy implementation using Express and PassportJS
+GitHub OAuth strategy implementation using Express and PassportJS  
+  
+Simple app with PassportJS middleware, GitHub strategy and OAuth verification
 
 ## Setup  
 0. Clone repository
@@ -18,6 +20,7 @@ npm install
 2.3. There is basic usage of MongoDB server - `MONGO_ADDRESS` and `MONGO_PORT` env variables. Use these variables in your dotenv file or refactor [this](https://github.com/bee-joo/passportjs-github/blob/main/app.js#L14) line for your usage  
 2.4. Create an OAuth GitHub app [(docs)](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app)  
 2.5. Use `CLIENT_ID` and `CLIENT_SECRET` env variables for client ID and secret. Use `CALLBACK_URL` variable for your callback URL  
+2.6. Put your long secret string in `SESSION_SECRET` env variable
 3. Run app
 ```
 npm start
