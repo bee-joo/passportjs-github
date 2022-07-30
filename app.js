@@ -21,7 +21,7 @@ let User = mongoose.model('User', UserSchema);
 passport.use(new GitHubStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "https://githubpassportjs.danilabukin.repl.co/auth/github/callback"
+    callbackURL: process.env.CALLBACK_URL
     },
     function(accessToken, refreshToken, profile, done) {
         User.findOrCreate({ githubId: profile.id }, function (err, user) {
@@ -48,11 +48,11 @@ const isAuth = (req, res, next)=> {
 }
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(path.join(__dirname, 'templates/index.html'));
 });
 
 app.get('/sorry', (req, res) => {
-    res.sendFile(path.join(__dirname, 'sorry.html'));
+    res.sendFile(path.join(__dirname, 'templates/sorry.html'));
 });
 
 app.get('/private', isAuth, (req, res) => {
